@@ -1,0 +1,13 @@
+.footer{
+    border-top:1px solid lightgray;
+    color:white;
+    padding:20px;
+    background-image: linear-gradient(to top, black, rgba(0, 0, 0, 0.6));
+    bottom:0;
+    text-align:center;
+}
+.footer>p{
+    padding:5px;
+    font-size:14px;
+    color:white;
+}

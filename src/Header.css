@@ -1,0 +1,57 @@
+.header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position:sticky;
+    background-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.6));
+    z-index: 100;
+    width:100%;
+    top:0;
+}
+
+.header__icon{
+    object-fit:contain;
+    width: 15vw;
+    /* margin: left 15vw; */
+}
+
+.nav-options {
+    display: flex;
+    justify-content: center;
+}
+
+.user-wrapper {
+    display: flex;
+}
+
+.header__right{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    width: 85vw ;
+    margin-right: 5vw;
+    color:white;
+
+}
+
+.psr:hover{
+    text-decoration:none;
+} 
+
+
+.header__right p:hover {
+    color:rgb(177, 177, 177);
+}
+
+
+.header__right p{
+    color:white;
+}
+
+.header__right> div >div {
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+
+

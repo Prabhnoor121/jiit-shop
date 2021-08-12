@@ -1,0 +1,7 @@
+GET  http://localhost:4000/app/LogIn
+Content-Type: application/json
+
+{
+    "email":"mudit@gmail.com",
+    "password":"jain"
+}

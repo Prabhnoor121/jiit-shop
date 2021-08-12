@@ -1,0 +1,10 @@
+.home__section{
+    display:flex;
+    padding:30px;
+}
+
+.card_home{
+    height:250px;
+    width:250px;
+}
+
