@@ -42,7 +42,14 @@ class LogIn extends Component {
 
             console.log(user)
             //localStorage.setItem("email", user.user.email)
-            localStorage.setItem("Name", user.user.fullName)
+            localStorage.setItem("Name", user.user.fullName);
+            localStorage.setItem("userId", user.user._id);
+            localStorage.setItem("isVerified", user.user.isVerified);
+            if (user.user.isVerified) {
+                localStorage.setItem("verifiedId", user.user.verifiedId);
+            }
+            console.log("Verified ID is", user.user.verifiedId);
+
             // const { state } = this.props.location;
             // window.location = state ? state.from.pathname : "/";
             window.location = "/";

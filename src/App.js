@@ -16,18 +16,26 @@ import Chat from './chat'
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import LogOut from './logOut';
+import VerifyUser from './verifyUser';
+import Payment from './payment';
 
 function App() {
   return (
     <div className="app">
       <Router>
         < Header />
-        <img src="/mudit.jpg" id="bg" />
+        <img src="/monu1.jpg" id="bg" />
         <main className="container">
           <Chat />
           <Switch>
+            <Route path="/verify">
+              <VerifyUser />
+            </Route>
             <Route path="/host">
               <Host />
+            </Route>
+            <Route path="/payment">
+              <Payment />
             </Route>
             <Route path="/wishlist">
               <Wishlist />

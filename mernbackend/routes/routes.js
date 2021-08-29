@@ -4,6 +4,7 @@ const signUpTemplateCopy = require('../models/SignUpModels')
 const bcrypt = require('bcrypt')
 const hostTemplate = require('../models/Host')
 const reviewTemplate = require('../models/Review')
+const VerifyTemplate = require('../models/Verified')
 
 //GET is used to request data from a specified resource.
 //POST is used to send data to a server to create/update a resource.
@@ -19,16 +20,24 @@ router.post('/LogIn', async (request, response) => {
     let matchPasssword = await bcrypt.compare(password, user.password)
 
     if (matchPasssword) {
+        let verifiedObject;
+        if (user.isVerified) {
+            verifiedObject = await VerifyTemplate.find({ "userId": user._id });
+            console.log(verifiedObject);
+        }
         user = {
+            _id: user._id,
             fullName: user.fullName,
             email: user.email,
-            password: user.password
+            password: user.password,
+            isVerified: user.isVerified ? user.isVerified : false,
+            verifiedId: user.isVerified ? verifiedObject._id : null,
         }
         response.json({ user })
         console.log(user)
     }
     else
-        res.status(401).json({ msg: "Invalid Credentials" })
+        response.status(401).json({ msg: "Invalid Credentials" })
 
 })
 
@@ -79,6 +88,31 @@ router.put('/host/:id', async (req, res) => {
         { new: true }
     )
     res.send(user);
+})
+
+router.post('/verify', async (request, response) => {
+
+
+    const user = new VerifyTemplate({
+        Enrollment: request.body.Enrollment,
+        Room: request.body.Room,
+        Contact: request.body.Contact,
+        userId: request.body.userId
+        // ID: request.files.file
+    })
+    console.log(user)
+    const { data, mimetype } = request.files.file;
+    user.ID.Data = data;
+    user.ID.ContentType = mimetype;
+
+    user.save()
+        .then(data => {
+            //console.log(data)
+            response.json(data)
+        })
+        .catch(error => {
+            response.json(error)
+        })
 })
 
 router.post('/review', async (request, response) => {

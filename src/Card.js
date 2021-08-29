@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import './Card.css';
 
 class Card extends Component {
     state = {}
     handleBook = () => {
-        alert("Your Room is Booked");
+        alert("Your Order is Placed");
         window.location = "/"
     }
     render() {
@@ -17,7 +18,9 @@ class Card extends Component {
                     <h2>{title}</h2>
                     <h4>{description}</h4>
                     <h3>{price}</h3>
-                    <button className="btn btn-danger" onClick={this.handleBook}> {button}</button>
+                    <Link to="/payment">
+                        <button className="btn btn-danger"> {button}</button>
+                    </Link>
                 </div>
             </div>
         );

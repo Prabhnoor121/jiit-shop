@@ -176,12 +176,11 @@ class SearchPage extends Component {
                         62 stays . 26 august to 30 august . 2
                         guest
                 </p> */}
-                    <h1>Stays nearby</h1>
                     <button variant="outlined"
                         className="clickable"
                         onClick={() => this.raisedSort("location")}
                     >
-                        location {this.renderSortIcon("location")}
+                        Item {this.renderSortIcon("location")}
                     </button>
                     {/* <button variant="outlined">
                         Type of Place
@@ -201,7 +200,7 @@ class SearchPage extends Component {
                 </div>
                 {sorted.map((option) => (
                     <SearchResult
-                        key={option._id} location={option.location} id={option._id} title={option.title} description={option.details} price={option.price} img="images/20.jpg" star={this.totalRating(option._id)} total="$117 total"
+                        key={option._id} location={option.location} id={option._id} title={option.title} description={option.details} price={option.price} img="images/5.jpg" star={this.totalRating(option._id)} total="$117 total"
                     />
                 ))}
                 {/* <SearchResult

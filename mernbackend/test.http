@@ -1,7 +1,10 @@
-GET  http://localhost:4000/app/LogIn
+GET  http://localhost:4000/app/verify
 Content-Type: application/json
 
 {
-    "email":"mudit@gmail.com",
-    "password":"jain"
+    "Enrollment":"18103199",
+    "Room":"1951",
+    "Contact":"9805872999",
+    //"ID":{"Data":"/xyz",
+    //"ContentType":"image/jpg"
 }

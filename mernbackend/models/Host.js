@@ -18,6 +18,9 @@ const hostTemplate = new mongoose.Schema({
         type: Number,
         required: true
     },
+    verifiedId: {
+        type: String,
+    },
     date: {
         type: Date,
         default: Date.now

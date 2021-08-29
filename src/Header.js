@@ -25,16 +25,28 @@ class Header extends Component {
 
     state = {
         query: "",
-        place: []
+        place: [],
+        bool: ""
     }
 
     async componentDidMount() {
         const { data: place } = await axios.get("http://localhost:4000/app/search")
         this.setState({ place })
         const user = this.getDetails()
+        const isVerified = this.getVerificationStatus();
         this.setState({
-            user
+            user, isVerified
         })
+        if (isVerified == true) {
+            this.setState({
+                bool: "true"
+            })
+        }
+        else {
+            this.setState({
+                bool: ""
+            })
+        }
     }
 
 
@@ -53,6 +65,10 @@ class Header extends Component {
         return localStorage.getItem("Name")
     }
 
+    getVerificationStatus = () => {
+        return localStorage.getItem("isVerified")
+    }
+
 
     logOut = () => {
         localStorage.removeItem("Name")
@@ -62,13 +78,16 @@ class Header extends Component {
 
 
 
+
         return (
             <nav className="header">
                 <Link to='/'>
                     <img
                         className="header__icon"
-                        src="images/logo.jpeg"
+                        src="images/3.jpg"
                         alt=""
+                        width="190px"
+                        height="110px"
                     />
                 </Link>
                 {/* <form onSubmit={this.handleSubmit}>
@@ -85,16 +104,22 @@ class Header extends Component {
                 </form> */}
                 <div className="header__right">
                     <div className="nav-options">
+                        {/* For applying for verification */}
 
-                        <div className="nav-item add"><Link to='/host' className="psr">
-                            <p>Add your Place</p>
+                        {!this.state.isVerified && (<div className="nav-item add"><Link to='/verify' className="psr">
+                            <p>Get Verified</p>
+                        </Link></div>)}
+                        {/* For Adding Items */}
+                        {this.state.isVerified && (<div className="nav-item add"><Link to='/host' className="psr">
+                            <p>Add Item</p>
                         </Link>
-                        </div>
+                        </div>)}
+
                         <div className="nav-item add"><Link to='/review' className="psr">
                             <p>Review</p>
                         </Link></div>
                         <div className="nav-item add"><Link to='/wishlist' className="psr">
-                            <p>Wishlist</p>
+                            <p>Add to Cart</p>
                         </Link></div>
                     </div>
                     <div className="user-wrapper">

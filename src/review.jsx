@@ -68,7 +68,7 @@ class Review extends Component {
             <div className='container'>
                 <div className='form-div'>
                     <form onSubmit={this.onSubmit}>
-                        <label htmlFor="movie">Place</label>
+                        <label htmlFor="movie">Item</label>
                         <select name="movie" id="movie" onChange={this.changePlace} className="form-control">
                             <option value=""></option>
                             {this.state.places.map((option) => (

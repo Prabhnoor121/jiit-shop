@@ -35,19 +35,19 @@ class Wishlist extends Component {
             m.liked === true);
 
         return (<div>
-            <h1>Wishlist</h1>
+            <h1>Cart</h1>
             <div className="home__section">
                 {filtered.map((option) => (
 
                     <Card
                         key={option._id}
                         className="card_home"
-                        src="images/20.jpg"
+                        src="images/5.jpg"
                         title={option.title}
                         location={option.location}
                         description={option.details}
                         price={`₹${option.price}`}
-                        button="Book Now"
+                        button="Place Order"
                     />
                 ))}</div>
         </div>

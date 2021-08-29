@@ -4,7 +4,7 @@ import './Card.css';
 class Card extends Component {
     state = {}
     handleBook = () => {
-        alert("Your Room is Booked");
+        alert("Order Placed");
         window.location = "/"
     }
     render() {

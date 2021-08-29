@@ -9,11 +9,13 @@
     top:0;
 }
 
-.header__icon{
+/* .header__icon{
     object-fit:contain;
-    width: 15vw;
-    /* margin: left 15vw; */
-}
+    /* width: 600px;
+    height: 120px;
+    background: url("images/3.jpg") no-repeat; */
+    /* margin: left 15vw; 
+} */
 
 .nav-options {
     display: flex;

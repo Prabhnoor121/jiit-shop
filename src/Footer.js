@@ -5,7 +5,7 @@ function Footer() {
     return (
         <div className="footer">
             <p>
-                2021 Travify : Your Travelling Mafia! No rights reserved!
+                2021 Element : JIIT's Own Shop! No rights reserved!
             </p>
             <p>
                 Privacy . Terms . Sitemap . Company Details

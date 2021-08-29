@@ -10,7 +10,7 @@ function Banner() {
 
     return (
         <div className="banner">
-            <div className="banner__search">
+            {/* <div className="banner__search">
                 {showSearch && <Search />}
                 <button onClick={() =>
                     setShowSearch(!showSearch)}
@@ -18,11 +18,11 @@ function Banner() {
                     {showSearch ? "Hide" :
                         "Search Dates"}
                 </button>
-            </div>
+            </div> */}
             <div className="banner__info">
-                <h1>Get out and stretch you imagination</h1>
+                <h1>Get out and look for better options</h1>
                 <h5>
-                    Plan a different kind of getaway to uncover the hidden gems near you.
+                    Plan a different approach and uncover the hidden gems near you.
                 </h5>
                 <button
                     onClick={() => history.push('/search')}

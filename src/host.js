@@ -26,7 +26,8 @@ class Host extends Component {
             location: this.state.location,
             title: this.state.title,
             details: this.state.details,
-            price: this.state.price
+            price: this.state.price,
+            verifiedId: localStorage.getItem("verifiedId"),
         }
 
         axios.post("http://localhost:4000/app/host", registered)
@@ -73,17 +74,17 @@ class Host extends Component {
                 <div className='container'>
                     <div className='form-div'>
                         <center>
-                            <h1><b>Add Your Place</b></h1>
+                            <h1><b>Add Item</b></h1>
                         </center>
                         <form onSubmit={this.onSubmit}>
                             <input type="text"
-                                placeholder="Location"
+                                placeholder="Item Name"
                                 onChange={this.changeLocation}
                                 value={this.state.location}
                                 className='form-control form-group'
                             />
                             <input type='text'
-                                placeholder='Title'
+                                placeholder='Seller'
                                 onChange={this.changeTitle}
                                 value={this.state.title}
                                 className="form-control form-group"

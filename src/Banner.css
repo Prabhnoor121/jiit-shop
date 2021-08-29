@@ -1,8 +1,9 @@
 .banner{
-    background: url("images/12.jpg") bottom;
+    background: url("images/monu.jpg") no-repeat;
     height:62vh;
     position:relative;
     width:70vw;
+    background-size: 100% 100%;
 }
 .banner__info{
     background-color: black;
@@ -12,6 +13,8 @@
     padding-right: 50px;
     padding-bottom: 15px;
     width:300px;
+    position: relative;
+    left:775px;
 }
 .banner__info>button{
     background-color: #ff7779;

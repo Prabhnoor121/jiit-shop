@@ -1,3 +1,4 @@
+const fileuploader = require('express-fileupload')
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -13,5 +14,6 @@ mongoose.connect(process.env.DATABASE_ACCESS, () => console.log("Database Connec
 // the next line is to activate body passer in our app
 app.use(express.json())
 app.use(cors())
+app.use(fileuploader())
 app.use('/app', routesUrls)
 app.listen(4000, () => console.log("server is up and running"))

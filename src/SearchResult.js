@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 import './SearchResult.css'
 import StarIcon from '@material-ui/icons/Star';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -21,7 +22,7 @@ class SearchResult extends Component {
 
     };
     handleBook = () => {
-        alert("Your Room is Booked");
+        alert("Your Order is Placed");
         window.location = "/"
     }
     render() {
@@ -36,7 +37,7 @@ class SearchResult extends Component {
                     <div className="searchResult__infoTop">
                         <h3>{location}</h3>
                         <Likes onClick={() => this.handleLike(id)} liked={this.state.titles.liked} className="searchResult__heart" />
-                        <h3>{title}</h3>
+                        <h3>Seller: {title}</h3>
                         <p>____</p>
                         <h4>{description}</h4>
                     </div>
@@ -48,9 +49,9 @@ class SearchResult extends Component {
                             </p>
                         </div>
                         <div className="searchResult__price">
-                            <button
-                                className="btn btn-danger" onClick={this.handleBook}
-                            > Book Now</button>
+                            <Link to="/payment">
+                                <button className="btn btn-danger"> Place Order</button>
+                            </Link>
                             <br />
                             <br />
                             <br />
