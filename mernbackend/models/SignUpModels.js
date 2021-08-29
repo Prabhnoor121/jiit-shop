@@ -21,8 +21,8 @@ const signUpTemplate = new mongoose.Schema({
         default: Date.now
     },
     isVerified: {
-        type: String,
-        //default: false
+        type: Boolean,
+        default: false
     }
 })
 
