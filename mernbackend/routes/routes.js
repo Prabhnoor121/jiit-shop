@@ -87,18 +87,19 @@ router.put("/host/:id", async (req, res) => {
   res.send(user);
 });
 
-router.get("/getProduct", async (req, res) => {
+router.get("/getProductAndSeller/:productId", async (req, res) => {
   console.log("From getProduct");
-  console.log("Product Id", req.body.productId);
-  const { productId } = req.body;
+  console.log("Product Id of product from url is", req.params.productId);
+  const { productId } = req.params;
   const product = await hostTemplate.findOne({ _id: productId });
+  console.log(product);
   const seller = await VerifyTemplate.findOne({ _id: product.verifiedId });
   const finalData = {
     sellerNumber: seller.Contact,
     sellerRoom: seller.Room,
   };
   console.log("Seller Final Object", finalData);
-  res.json({ product });
+  res.json({ finalData });
 });
 
 router.post("/verify", async (request, response) => {

@@ -32,9 +32,7 @@ function App() {
             <Route path="/host">
               <Host />
             </Route>
-            <Route path="/payment/:id">
-              <Payment />
-            </Route>
+            <Route path="/payment/:id" component={Payment} />
             <Route path="/wishlist">
               <Wishlist />
             </Route>

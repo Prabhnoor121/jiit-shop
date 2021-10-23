@@ -13,6 +13,8 @@ class Payment extends Component {
       username: "",
       email: "",
       password: "",
+      phoneNumber: null,
+      roomNumber: null,
     };
     this.changeFullName = this.changeFullName.bind(this);
     this.changeEmail = this.changeEmail.bind(this);
@@ -21,16 +23,17 @@ class Payment extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  //   async componentDidMount() {
-  //     console.log("Product ID", this.props.match.params.id);
-  //     const { data: product } = await axios.get(
-  //       "http://localhost:4000/app/getProduct",
-  //       {
-  //         productId: this.props.match.params.id,
-  //       }
-  //     );
-  //     console.log(product);
-  //   }
+  async componentDidMount() {
+    console.log("Product ID", this.props.match.params.id);
+    const { data } = await axios.get(
+      `http://localhost:4000/app/getProductAndSeller/${this.props.match.params.id}`
+    );
+    this.setState({
+      phoneNumber: data.finalData.sellerNumber,
+      roomNumber: data.finalData.sellerRoom,
+    });
+    console.log(data.finalData);
+  }
 
   // event.preventDefault() means the page after submit wont work as defaullt i.e, i wont reload (default is it reloads)
   onSubmit = (event) => {
@@ -100,7 +103,7 @@ class Payment extends Component {
                   autoComplete="off"
                 />
                 <label className="form-check-label" for="btn-check-outlined">
-                  UPI
+                  UPI {this.state.phoneNumber}
                 </label>
               </div>
               <div className="form-check">
@@ -116,7 +119,7 @@ class Payment extends Component {
                   className="form-check-label  "
                   for="btn-check-outlined-1"
                 >
-                  Cash On Delivery
+                  Cash On Delivery {this.state.roomNumber}
                 </label>
               </div>
 
